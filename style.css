@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff8e1; /* Un tono amarillo muy claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Para que la decoración no cause scroll */
+}
+
+.background-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite interactuar con el contenido principal */
+}
+
+.decoration {
+    position: absolute;
+    opacity: 0.7;
+    font-size: 1.5em; /* Ajusta el tamaño de las estrellas */
+    animation: twinkle 5s infinite alternate; /* Cambiamos la animación a "twinkle" */
+}
+
+.star-deco-1 {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.star-deco-2 {
+    top: 30%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.star-deco-3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.star-deco-4 {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 0.5s;
+}
+
+.star-deco-5 {
+    top: 5%;
+    right: 30%;
+    animation-delay: 1.5s;
+}
+
+.star-deco-6 {
+    bottom: 35%;
+    left: 5%;
+    animation-delay: 2.5s;
+}
+
+@keyframes twinkle {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(15px) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%; /* Ajusta el ancho según lo necesites */
+    max-width: 600px; /* Ancho máximo para pantallas grandes */
+    border: 5px solid #ffb300; /* Borde amarillo sólido */
+    position: relative; /* Para el pseudo-elemento del borde animado */
+    z-index: 1; /* Asegura que el contenedor esté sobre la decoración */
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px dashed #fdd835; /* Borde amarillo más claro y punteado */
+    border-radius: 20px;
+    animation: borderAnimation 5s infinite alternate;
+    z-index: -1; /* Para que esté detrás del contenedor principal */
+}
+
+@keyframes borderAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.message-box {
+    /* El estilo del message-box se mantiene igual */
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: #ffb300; /* Un tono de amarillo más intenso */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: #333;
+    line-height: 1.6;
+}
